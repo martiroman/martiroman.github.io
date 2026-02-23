@@ -82,7 +82,7 @@
     .hero-avatar {
       width: 96px; height: 96px; border-radius: 50%;
       object-fit: cover; border: 2px solid var(--border);
-      margin-bottom: auto; margin-top: 15rem;
+      margin-bottom: auto; margin-top: 13rem;
     }
     .hero-status {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -331,7 +331,7 @@
     margin-top: 2rem;
     background: var(--ink);
     padding: 1rem 1.5rem;       /* antes 1.25rem — reduce la altura */
-    max-width: 52ch;             /* antes 44ch — lo ensancha */
+    max-width: 72ch;             /* antes 44ch — lo ensancha */
     opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
     }
     .terminal-bar {
