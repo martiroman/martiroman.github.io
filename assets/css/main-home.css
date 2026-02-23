@@ -38,7 +38,7 @@
     .nav-links a:hover { color: var(--ink); }
 
     /* HERO */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 1rem; }
     .hero-left {
       display: flex; flex-direction: column; justify-content: center;
       padding: 5rem 3rem; border-right: 1px solid var(--border);
@@ -82,7 +82,7 @@
     .hero-avatar {
       width: 96px; height: 96px; border-radius: 50%;
       object-fit: cover; border: 2px solid var(--border);
-      margin-bottom: auto; margin-top: 7rem;
+      margin-bottom: auto; margin-top: 10rem;
     }
     .hero-status {
       display: inline-flex; align-items: center; gap: 0.5rem;
