@@ -59,6 +59,7 @@ https://pypi.org/project/prometheus-api-client/
 
 En este ejemplo consultamos el uso de CPU del container "argocd-server" y creamos un Dataframe de Pandas
 
+```python
     from prometheus_api_client import PrometheusConnect,  MetricSnapshotDataFrame, MetricRangeDataFrame
     import datetime as dt
     
@@ -75,6 +76,7 @@ En este ejemplo consultamos el uso de CPU del container "argocd-server" y creamo
 
     df = MetricRangeDataFrame(metric_data)
     df.head()
+```
 
 ---
 ## 2. Inspección y preparación de los datos
