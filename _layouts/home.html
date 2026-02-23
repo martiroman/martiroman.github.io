@@ -103,9 +103,51 @@
   </div>
 </section>
 
+<!-- BLOG -->
+<section id="blog">
+  <p class="section-label">02 — blog</p>
+  <h2 class="section-title">Últimos artículos</h2>
+  <div class="posts">
+
+    {% assign recent_posts = site.posts | limit: 3 %}
+    {% for post in recent_posts %}
+    <a href="{{ post.url | relative_url }}" class="post-row">
+      <div>
+        <p class="post-title-row">{{ post.title }}</p>
+        {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+      </div>
+      <div class="post-meta">
+        <span>{{ post.date | date: "%b %Y" }}</span>
+        {% if post.read_time %}
+        <span>{{ post.read_time }} min lectura</span>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+
+    {% if site.posts.size == 0 %}
+    <div class="post-row" style="pointer-events:none; opacity:0.4;">
+      <div>
+        <p class="post-title-row">Próximamente...</p>
+        <p class="post-excerpt">Todavía no hay posts publicados. Creá tu primer archivo en _posts/.</p>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  {% if site.posts.size > 3 %}
+  <div style="margin-top:1.5rem;">
+    <a href="/blog" class="btn btn-ghost">ver todos los posts</a>
+  </div>
+  {% endif %}
+
+</section>
 <!-- SKILLS -->
 <section id="skills">
-  <p class="section-label">02 — habilidades</p>
+  <p class="section-label">03 — habilidades</p>
   <h2 class="section-title">Con qué trabajo</h2>
   <div class="skills-grid">
 
@@ -159,49 +201,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-  <p class="section-label">03 — blog</p>
-  <h2 class="section-title">Últimos artículos</h2>
-  <div class="posts">
-
-    {% assign recent_posts = site.posts | limit: 3 %}
-    {% for post in recent_posts %}
-    <a href="{{ post.url | relative_url }}" class="post-row">
-      <div>
-        <p class="post-title-row">{{ post.title }}</p>
-        {% if post.excerpt %}
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-      <div class="post-meta">
-        <span>{{ post.date | date: "%b %Y" }}</span>
-        {% if post.read_time %}
-        <span>{{ post.read_time }} min lectura</span>
-        {% endif %}
-      </div>
-    </a>
-    {% endfor %}
-
-    {% if site.posts.size == 0 %}
-    <div class="post-row" style="pointer-events:none; opacity:0.4;">
-      <div>
-        <p class="post-title-row">Próximamente...</p>
-        <p class="post-excerpt">Todavía no hay posts publicados. Creá tu primer archivo en _posts/.</p>
-      </div>
-    </div>
-    {% endif %}
-
-  </div>
-
-  {% if site.posts.size > 3 %}
-  <div style="margin-top:1.5rem;">
-    <a href="/blog" class="btn btn-ghost">ver todos los posts</a>
-  </div>
-  {% endif %}
-
 </section>
 
 <!-- FOOTER / CONTACT -->
