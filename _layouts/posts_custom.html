@@ -6,10 +6,23 @@ layout: single
 
 <style>
   .masthead { display: none; }
-
+  .page__content {
+    font-size: 0.8rem;
+   }
   /* Tamaño de letra del contenido — sobreescribe MM */
   .page__content p,
   .page__content li { font-size: 0.95rem; line-height: 1.75; }
+
+  /* empuja todo el contenido debajo del nav fijo */
+    #main {
+    margin-top: 4rem;
+    padding-top: 0;
+    }
+
+    /* por si MM lo maneja con el wrapper */
+    .page {
+    margin-top: 4rem;
+    }
 
   /* Título del post — bajá el padding-top para que no quede tapado */
   .page__title { padding-top: 5rem; }
@@ -29,10 +42,10 @@ layout: single
   </a>
 
   <ul style="display:flex; gap:2rem; list-style:none; margin:0; padding:0;">
+    <li><a href="/" style="font-family:'DM Mono',monospace;
+      font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">home</a></li>
     <li><a href="/#projects" style="font-family:'DM Mono',monospace;
       font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">proyectos</a></li>
-    <li><a href="/#blog" style="font-family:'DM Mono',monospace;
-      font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">blog</a></li>
     <li><a href="/cv" style="font-family:'DM Mono',monospace;
       font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">CV</a></li>
   </ul>
