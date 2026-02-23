@@ -325,6 +325,39 @@
     padding: 0.2rem 0.5rem; border: 1px solid var(--border);
     color: var(--accent); letter-spacing: 0.04em;
     }
+    
+    /* TERMINAL BIO */
+    .terminal {
+    margin-top: 2rem;
+    background: var(--ink);
+    padding: 1.25rem 1.5rem;
+    max-width: 44ch;
+    opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
+    }
+    .terminal-bar {
+    display: flex; gap: 0.4rem; margin-bottom: 1rem;
+    }
+    .terminal-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    }
+    .terminal-dot:nth-child(1) { background: #ff5f57; }
+    .terminal-dot:nth-child(2) { background: #febc2e; }
+    .terminal-dot:nth-child(3) { background: #28c840; }
+    .terminal-line {
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
+    line-height: 1.8; color: rgba(255,255,255,0.5);
+    }
+    .terminal-line .prompt { color: #28c840; }
+    .terminal-line .cmd { color: #ffffff; }
+    .terminal-line .out { color: rgba(255,255,255,0.45); }
+    .terminal-cursor {
+    display: inline-block;
+    width: 7px; height: 0.9em;
+    background: rgba(255,255,255,0.7);
+    vertical-align: text-bottom;
+    animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
     /* ANIMATIONS */
     @keyframes fadeUp {

@@ -16,7 +16,7 @@ f<!DOCTYPE html>
   <ul class="nav-links">
     <li><a href="#projects">proyectos</a></li>
     <li><a href="#blog">blog</a></li>
-    <li><a href="cv.html">CV</a></li>
+    <li><a href="cv">CV</a></li>
     <li><a href="#contact">contacto</a></li>
   </ul>
 </nav>
@@ -27,10 +27,10 @@ f<!DOCTYPE html>
     <p class="hero-eyebrow">// IT Specialist · Buenos Aires, AR</p>
     <h1 class="hero-name">Martin<br>Roman<span>.</span></h1>
     <p class="hero-bio">
-      Especialista IT con más de 20 años de trayectoria. De la gestión de Datacenters a Dynatrace Professional Certified y Software Developer. Infraestructura, observabilidad y código.
+      {% include whoiam.html %}
     </p>
     <div class="hero-ctas">
-      <a href="cv.html" class="btn btn-solid">curriculum vitae</a>
+      <a href="cv" class="btn btn-solid">curriculum vitae</a>
       <a href="#blog" class="btn btn-ghost">Blog</a>
       <a href="#projects" class="btn btn-ghost">Proyectos</a>
     </div>
@@ -108,7 +108,7 @@ f<!DOCTYPE html>
 <!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">02 — proyectos destacados</p>
-  <h2 class="section-title">Algunos ejemplos públicos</h2>
+  <h2 class="section-title">Algunos proyectos en los que estoy trabajando</h2>
   <div class="grid">
 
     <a href="https://github.com/martiroman/timeseries-forecasting" class="project-card">
@@ -120,15 +120,6 @@ f<!DOCTYPE html>
       <span class="project-tag">Observability</span>
     </a>
 
-    <a href="https://github.com/martiroman/observabilidad/tree/main/NodeJS" class="project-card">
-      <p class="project-num">002</p>
-      <h3 class="project-title">Observabilidad / CICD</h3>
-      <p class="project-desc">Notas, apuntes y ejemplos sobre Observabilidad, CI/CD en NodeJS</p>
-      <span class="project-tag">NodeJS</span>
-      <span class="project-tag">Observability</span>
-      <span class="project-tag">CI/CD</span>
-    </a>
-
     <a href="https://github.com/martiroman/can-message-simulator" class="project-card">
       <p class="project-num">003</p>
       <h3 class="project-title">CAN Message Simulator</h3>
@@ -136,6 +127,15 @@ f<!DOCTYPE html>
       <span class="project-tag">TypeScript</span>
       <span class="project-tag">PostgreSQL</span>
       <span class="project-tag">AWS</span>
+    </a>
+
+    <a href="https://github.com/martiroman/observabilidad/tree/main/NodeJS" class="project-card">
+      <p class="project-num">002</p>
+      <h3 class="project-title">Observabilidad en NodeJS</h3>
+      <p class="project-desc">Notas, apuntes y ejemplos sobre Observabilidad, CI/CD en NodeJS</p>
+      <span class="project-tag">NodeJS</span>
+      <span class="project-tag">Observability</span>
+      <span class="project-tag">CI/CD</span>
     </a>
 
     <a href="https://github.com/martiroman/python-music" class="project-card">
@@ -150,52 +150,6 @@ f<!DOCTYPE html>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-label">03 — habilidades</p>
-  <h2 class="section-title">Con qué trabajo</h2>
-  <div class="skills-grid">
-    <div class="skill-block">
-      <p class="skill-category">// desarrollo</p>
-      <div class="skill-list">
-        <span class="skill-item">Python</span>
-        <span class="skill-item">C++</span>
-        <span class="skill-item">C# / .NET</span>
-        <span class="skill-item">PHP</span>
-        <span class="skill-item">Bash scripting</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <p class="skill-category">// observabilidad</p>
-      <div class="skill-list">
-        <span class="skill-item">Dynatrace</span>
-        <span class="skill-item">Grafana</span>
-        <span class="skill-item">Nagios</span>
-        <span class="skill-item">Zabbix</span>
-        <span class="skill-item">OpenTelemetry</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <p class="skill-category">// infraestructura</p>
-      <div class="skill-list">
-        <span class="skill-item">Kubernetes</span>
-        <span class="skill-item">Linux</span>
-        <span class="skill-item">Windows</span>
-        <span class="skill-item">Arquitecturas Intel & ARM</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <p class="skill-category">// gestión</p>
-      <div class="skill-list">
-        <span class="skill-item">Observability Design</span>
-        <span class="skill-item">Arquitectura IT</span>
-        <span class="skill-item">Datacenter Ops</span>
-        <span class="skill-item">Integration Dev</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER / CONTACT -->
 <footer id="contact">
   <div>
@@ -206,7 +160,7 @@ f<!DOCTYPE html>
     <a href="https://github.com/martiroman" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/martinnahuel-roman/" target="_blank" rel="noopener">LinkedIn</a>
     <!-- <a href="https://twitter.com/martiroman" target="_blank" rel="noopener">Twitter / X</a>-->
-    <a href="/cv.pdf" target="_blank">Descargar CV</a>
+    <a href="cv" target="_blank">Ver CV</a>
   </div>
   <div class="footer-bottom" style="grid-column: 1 / -1;">
     <p class="footer-copy">© 2026 Martin Roman — Hecho con Jekyll y Claude</p>
