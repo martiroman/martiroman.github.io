@@ -1,1 +1,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --ink: #111111;
+    --muted: #888888;
+    --accent: #1A1AFF;
+    --border: #DDDDD8;
+    --mono: 'DM Mono', monospace;
+    --sans: 'Syne', sans-serif;
+  }
+
+  .masthead { display: none; }
+  .page__content {
+    font-size: 0.8rem;
+   }
+  /* Tamaño de letra del contenido — sobreescribe MM */
+  .page__content p,
+  .page__content li { font-size: 0.95rem; line-height: 1.75; }
+
+  /* empuja todo el contenido debajo del nav fijo */
+    #main {
+    margin-top: 4rem;
+    padding-top: 0;
+    }
+   .page {
+    margin-top: 1rem;
+    }
+    .nav-custom {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(247,246,242,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    }
+    .nav-custom .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .nav-custom .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-custom .nav-links a {
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-custom .nav-links a:hover { color: var(--ink); }
+
+</style>
