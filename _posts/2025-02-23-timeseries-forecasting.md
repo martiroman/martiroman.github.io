@@ -1,6 +1,8 @@
 ---
 title: "Timeseries Forecasting"
 excerpt: "Breve ejemplo de cómo aplicar Machine Learning a métricas en formato Timeseries para estimar su comportamiento futuro."
+categories: [SRE, Machine Learning]
+tags: [python, prometheus, arima, observability]
 date: 2025-02-23
 ---
 
@@ -28,8 +30,10 @@ Nuestro objetivo será obtener datos de una fuente, agregarlos de una manera que
 Por ejemplo, entender el comportamiento del consumo de CPU de un servidor a lo largo del tiempo o proyectar la ocupación de una LUN de un storage.
 
 
-En nuestro ejercicio utilizaremos:
-Prometheus: https://prometheus.io/<br>Grafana: https://grafana.com/<br>Python: https://www.python.org/
+En nuestro ejercicio utilizaremos:<br>
+* Prometheus: https://prometheus.io/
+* Grafana: https://grafana.com/
+* Python: https://www.python.org/
 
 
 ---
@@ -63,7 +67,7 @@ En este ejemplo consultamos el uso de CPU del container "argocd-server" y creamo
     labels = {'container': 'argocd-server'}
 
     metric_data = promConn.get_metric_range_data(
-        'node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate',
+        'node_namespace_pod_container:container_memory_usage_bytes:sum_irate',
         label_config=labels,
         start_time=(dt.datetime.now() - dt.timedelta(days=14)),
         end_time=dt.datetime.now(),
@@ -93,7 +97,7 @@ Una proporción efectiva para comenzar es asignar el 80% de los datos al conjunt
 #### Cómo preparamos los datos en python
 
 Nos valdremos de las funciones del Dataframe de la librería Pandas de Python
-
+```python
     # Seleccionamos las columnas que necesitamos para el analisis y seteamos un indice
     df = df_prom[['value']].copy()
     df = df.set_index(df_prom.index)
@@ -108,6 +112,7 @@ Nos valdremos de las funciones del Dataframe de la librería Pandas de Python
     ratio = 0.2
     size = int(len(df) * (1-float(ratio)))
     df_train, df_test = df[0:size], df[size:len(df)]
+```
 ---
 ## 3. Modelado
 
@@ -137,22 +142,25 @@ Ejemplos:
     order(1, 1, 0) seasonal_order(0, 1, 1, 12) | AIC: 188.9630661935481
     order(0, 1, 0) seasonal_order(0, 1, 1, 12) | AIC: 187.2018820480008
 
+Buscamos el valor de AIC más bajo, ya que indica un mejor ajuste con menor complejidad.
+
 #### Cómo utilizar el modelo SARIMAX en python
     > pip install statsmodels
 
 Ejemplo de uso
-
+```python
     from statsmodels.tsa.statespace.sarimax import SARIMAX
 
     model = SARIMAX(df['Valor'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))  # Ajustar los órdenes según la serie temporal
 
     results = model.fit()
-
+```
 
 ---
 ## 4. Visualización de los datos
 Utilizaremos la librería matplotlib de python para graficar los datos históricos, predicciones e intervalos de confianza.
 
+```python
     # Datos históricos
     plt.figure(figsize=(10, 6))
     plt.plot(df, label='Datos Históricos')
@@ -174,7 +182,7 @@ Utilizaremos la librería matplotlib de python para graficar los datos históric
     plt.legend()
     plt.grid(True)
     plt.show()
-
+```
 ---
 ## 5. Próximos pasos
 
