@@ -1,7 +1,7 @@
 ---
 title: "Timeseries Forecasting"
 excerpt: "Breve ejemplo de cómo aplicar Machine Learning a métricas en formato Timeseries para estimar su comportamiento futuro."
-date: 2024-01-15
+date: 2025-02-23
 ---
 
 # Timeseries Forecasting - Parte I
