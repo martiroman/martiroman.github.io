@@ -4,7 +4,7 @@
   document.querySelectorAll('.btn').forEach(btn => {
     const label = btn.dataset.cmd || btn.textContent.trim().toLowerCase().replace(/\s+/g, '-');
     btn.addEventListener('mouseenter', () => {
-      if (cmdSpan) cmdSpan.innerHTML = ` ${label}.sh <span class="terminal-cursor"></span>`;
+      if (cmdSpan) cmdSpan.innerHTML = ` ${label} <span class="terminal-cursor"></span>`;
     });
 
     btn.addEventListener('mouseleave', () => {
