@@ -21,28 +21,26 @@ layout: single
    .page {
     margin-top: 1rem;
     }
-/* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
-      background: rgba(247,246,242,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .nav-custom {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(247,246,242,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
-      color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    .nav-custom .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .nav-custom .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-custom .nav-links a {
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--ink); }
-
+    .nav-custom .nav-links a:hover { color: var(--ink); }
 
 </style>
 
 <!-- NAV -->
-<nav>
+<nav class="nav-custom">
   <a href="#" class="nav-logo">martiroman.github.io</a>
   <ul class="nav-links">
     <li><a href="/">home</a></li>
