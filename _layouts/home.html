@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/main-home.css" />
+  <script src="../assets/js/type_command.js" defer></script>
 </head>
 <body>
 
@@ -30,9 +31,9 @@
       {% include whoiam.html %}
     </div>
     <div class="hero-ctas">
-      <a href="cv" class="btn btn-solid">curriculum vitae</a>
-      <a href="#blog" class="btn btn-ghost">blog</a>
-      <a href="#projects" class="btn btn-ghost">proyectos</a>
+      <a href="cv" class="btn btn-solid" data-cmd="open cv.pdf">curriculum vitae</a>
+      <a href="#blog" class="btn btn-ghost" data-cmd="cat blog/index.md">blog</a>
+      <a href="#projects" class="btn btn-ghost" data-cmd="ls ./projects">proyectos</a>
     </div>
   </div>
   <div class="hero-right">
