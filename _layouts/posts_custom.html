@@ -18,37 +18,36 @@ layout: single
     margin-top: 4rem;
     padding-top: 0;
     }
+   .page {
+    margin-top: 1rem;
+    }
+/* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(247,246,242,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
+      color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
 
-    /* por si MM lo maneja con el wrapper */
-    .page {
-    margin-top: 4rem;
-    }
-        /* letra del nav de MM que quedó visible */
-    .nav__list a,
-    .nav__title,
-    .toc__menu a {
-    font-size: 0.78rem;
-    }
 
 </style>
 
-<nav style="position:fixed; top:0; left:0; right:0; z-index:9999;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:1.25rem 3rem; background:rgba(247,246,242,0.88);
-  backdrop-filter:blur(12px); border-bottom:1px solid #DDDDD8;">
-
-  <a href="/" style="font-family:'Syne',sans-serif; font-size:1rem;
-    font-weight:700; color:#111111; text-decoration:none;">
-    martiroman.github.io
-  </a>
-
-  <ul style="display:flex; gap:2rem; list-style:none; margin:0; padding:0;">
-    <li><a href="/" style="font-family:'DM Mono',monospace;
-      font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">home</a></li>
-    <li><a href="/#projects" style="font-family:'DM Mono',monospace;
-      font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">proyectos</a></li>
-    <li><a href="/cv" style="font-family:'DM Mono',monospace;
-      font-size:0.78rem; font-weight:300; color:#888888; text-decoration:none;">CV</a></li>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">martiroman.github.io</a>
+  <ul class="nav-links">
+    <li><a href="/">home</a></li>
+    <li><a href="/#projects">proyectos</a></li>
+    <li><a href="cv">CV</a></li>
   </ul>
 </nav>
 
