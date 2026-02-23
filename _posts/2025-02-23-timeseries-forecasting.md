@@ -8,6 +8,9 @@ date: 2025-02-23
 ## Observabilidad y Machine Learning 
 Este es un breve ejemplo de cómo aplicar Machine Learning a métricas en formato Timeseries para estimar su comportamiento futuro.
 
+### Repositorio con el ejemplo completo
+https://github.com/martiroman/timeseries-forecasting
+
 ### Introducción
 
    **Observabilidad** es la capacidad de medir el estado actual de un sistema basándose en los datos que este genera (logs, trazas, métricas, eventos)

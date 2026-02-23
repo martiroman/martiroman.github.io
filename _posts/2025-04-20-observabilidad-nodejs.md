@@ -13,7 +13,8 @@ En este ejemplo veremos cómo recopilar información en una aplicación NodeJS p
 2. Trazas con OpenTelemetry: información sobre el recorrido de los requests
 2. Logs con FluentBit: eventos y acciones que ocurren en el sistema
 
-
+### Repositorio con el ejemplo completo
+https://github.com/martiroman/observabilidad/tree/main/NodeJS
 
 ### 1. Métricas 
 
