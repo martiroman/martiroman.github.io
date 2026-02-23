@@ -56,7 +56,7 @@
     }
     .hero-name span { color: var(--accent); }
     .hero-bio {
-      margin-top: 0.5rem; max-width: 40ch;
+      margin-top: 0.5rem; max-width: 100%; /* antes 42ch — lo ensancha */
       font-size: 0.95rem; line-height: 1.7; color: var(--muted); font-weight: 400;
       opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
     }
@@ -82,7 +82,7 @@
     .hero-avatar {
       width: 96px; height: 96px; border-radius: 50%;
       object-fit: cover; border: 2px solid var(--border);
-      margin-bottom: auto; margin-top: 13rem;
+      margin-bottom: auto; margin-top: 10rem;
     }
     .hero-status {
       display: inline-flex; align-items: center; gap: 0.5rem;
