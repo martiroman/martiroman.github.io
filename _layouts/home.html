@@ -6,310 +6,7 @@
   <title>Martin Roman — Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #F7F6F2;
-      --ink: #111111;
-      --muted: #888888;
-      --accent: #1A1AFF;
-      --border: #DDDDD8;
-      --card-bg: #FFFFFF;
-      --mono: 'DM Mono', monospace;
-      --sans: 'Syne', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
-      background: rgba(247,246,242,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-size: 1rem; font-weight: 700; letter-spacing: -0.02em;
-      color: var(--ink); text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
-      color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 5rem;
-    }
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 5rem 3rem 5rem 3rem;
-      border-right: 1px solid var(--border);
-    }
-    .hero-eyebrow {
-      font-family: var(--mono); font-size: 0.72rem; font-weight: 300;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
-    }
-    .hero-name {
-      font-size: clamp(3.5rem, 6vw, 6rem);
-      font-weight: 800; line-height: 0.95;
-      letter-spacing: -0.04em;
-      opacity: 0; animation: fadeUp 0.6s 0.25s forwards;
-    }
-    .hero-name span { color: var(--accent); }
-    .hero-bio {
-      margin-top: 2rem; max-width: 38ch;
-      font-size: 1rem; line-height: 1.6; color: var(--muted);
-      font-weight: 400;
-      opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
-    }
-    .hero-ctas {
-      display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.6s 0.55s forwards;
-    }
-    .btn {
-      font-family: var(--mono); font-size: 0.78rem; font-weight: 400;
-      letter-spacing: 0.06em; padding: 0.7rem 1.5rem;
-      text-decoration: none; border: 1px solid var(--ink);
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .btn-solid { background: var(--ink); color: var(--bg); }
-    .btn-solid:hover { background: var(--accent); border-color: var(--accent); }
-    .btn-ghost { background: transparent; color: var(--ink); }
-    .btn-ghost:hover { background: var(--ink); color: var(--bg); }
-
-    .hero-right {
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 3rem;
-      opacity: 0; animation: fadeIn 1s 0.7s forwards;
-    }
-    .hero-status {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: var(--mono); font-size: 0.72rem; font-weight: 300;
-      color: var(--muted); margin-bottom: auto; margin-top: 8rem;
-    }
-    .status-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
-      animation: pulse 2s infinite;
-    }
-    .hero-stack {
-      margin-top: auto;
-      border-top: 1px solid var(--border); padding-top: 2rem;
-    }
-    .hero-stack-label {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      font-family: var(--mono); font-size: 0.72rem; font-weight: 300;
-      padding: 0.3rem 0.75rem; border: 1px solid var(--border);
-      color: var(--ink); letter-spacing: 0.03em;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .tag:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ─── SECTION BASE ─── */
-    section { padding: 6rem 3rem; border-top: 1px solid var(--border); }
-    .section-label {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 3rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
-    }
-    .section-title {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    /* ─── PROJECTS ─── */
-    #projects .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      margin-top: 3rem;
-      border: 1px solid var(--border);
-    }
-    .project-card {
-      background: var(--card-bg);
-      padding: 2rem;
-      position: relative; overflow: hidden;
-      transition: background 0.2s;
-      text-decoration: none; color: inherit; display: block;
-    }
-    .project-card::after {
-      content: '↗'; position: absolute; top: 1.5rem; right: 1.5rem;
-      font-size: 1rem; color: var(--muted);
-      transition: transform 0.2s, color 0.2s;
-    }
-    .project-card:hover { background: var(--ink); color: var(--bg); }
-    .project-card:hover::after { transform: translate(3px,-3px); color: var(--bg); }
-    .project-card:hover .project-tag { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
-    .project-card:hover .project-desc { color: rgba(255,255,255,0.7); }
-    .project-num {
-      font-family: var(--mono); font-size: 0.65rem; font-weight: 300;
-      color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1.5rem;
-    }
-    .project-card:hover .project-num { color: rgba(255,255,255,0.4); }
-    .project-title {
-      font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em;
-      margin-bottom: 0.75rem; line-height: 1.2;
-    }
-    .project-desc {
-      font-size: 0.875rem; line-height: 1.6; color: var(--muted);
-      font-weight: 400; margin-bottom: 1.5rem;
-    }
-    .project-tag {
-      font-family: var(--mono); font-size: 0.65rem; font-weight: 300;
-      padding: 0.25rem 0.6rem; border: 1px solid var(--border);
-      display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    /* ─── SKILLS ─── */
-    #skills .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-    .skill-block {
-      background: var(--card-bg);
-      padding: 1.75rem 2rem;
-    }
-    .skill-category {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
-    }
-    .skill-list {
-      display: flex; flex-direction: column; gap: 0.4rem;
-    }
-    .skill-item {
-      font-size: 0.9rem; font-weight: 600; letter-spacing: -0.01em;
-    }
-
-    /* ─── BLOG ─── */
-    #blog .posts {
-      display: grid; gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-    .post-row {
-      background: var(--card-bg);
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: center; gap: 2rem;
-      padding: 1.75rem 2rem;
-      text-decoration: none; color: inherit;
-      transition: background 0.15s;
-    }
-    .post-row:hover { background: var(--ink); color: var(--bg); }
-    .post-row:hover .post-meta { color: rgba(255,255,255,0.4); }
-    .post-title-row { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
-    .post-excerpt { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
-    .post-row:hover .post-excerpt { color: rgba(255,255,255,0.6); }
-    .post-meta {
-      font-family: var(--mono); font-size: 0.68rem; font-weight: 300;
-      color: var(--muted); white-space: nowrap; text-align: right;
-    }
-    .post-meta span { display: block; }
-
-    /* ─── CONTACT / FOOTER ─── */
-    footer {
-      padding: 5rem 3rem;
-      border-top: 1px solid var(--border);
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: end; gap: 2rem;
-    }
-    .footer-cta-label {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
-    }
-    .footer-cta-heading {
-      font-size: clamp(2rem, 4vw, 4rem);
-      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
-    }
-    .footer-cta-heading a {
-      color: var(--accent); text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .footer-cta-heading a:hover { border-color: var(--accent); }
-    .footer-links {
-      display: flex; flex-direction: column; gap: 0.5rem; text-align: right;
-    }
-    .footer-links a {
-      font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
-      color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-bottom {
-      margin-top: 4rem; padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-copy {
-      font-family: var(--mono); font-size: 0.68rem; font-weight: 300;
-      color: var(--muted); letter-spacing: 0.04em;
-    }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
-      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.08); }
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      nav { padding: 1.25rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 6rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
-      .hero-right { padding: 2rem 1.5rem; }
-      .hero-status { margin-top: 0; }
-      section { padding: 4rem 1.5rem; }
-      footer { grid-template-columns: 1fr; padding: 4rem 1.5rem; }
-      .footer-links { text-align: left; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/main-home.css" />
 </head>
 <body>
 
@@ -330,7 +27,7 @@
     <p class="hero-eyebrow">// Software Developer · Buenos Aires, AR</p>
     <h1 class="hero-name">Martin<br>Roman<span>.</span></h1>
     <p class="hero-bio">
-      Analista Programador. Dynatrace Certified Professional. Especialista en IT con más de 20 años de trayectoria, evolucionando desde la gestión de Datacenters y administración de infraestructura crítica hacia el Desarrollo de Software y la Observabilidad avanzada.
+        Especialista en IT con más de 20 años de trayectoria, evolucionando desde la gestión de Datacenters y administración de infraestructura crítica hacia el Desarrollo de Software y la Observabilidad avanzada.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-solid">ver proyectos</a>
@@ -351,6 +48,9 @@
         <span class="tag">Node.js</span>
         <span class="tag">PHP</span>
         <span class="tag">Docker</span>
+        <span class="tag">Dynatrace</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">OpenTelemetry</span>
         <span class="tag">Git</span>
         <span class="tag">Linux</span>
       </div>
@@ -361,34 +61,43 @@
 <!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">01 — proyectos destacados</p>
-  <h2 class="section-title">Lo que construí</h2>
+  <h2 class="section-title">Algunos ejemplos públicos</h2>
   <div class="grid">
 
-    <a href="#" class="project-card">
+    <a href="https://github.com/martiroman/timeseries-forecasting" class="project-card">
       <p class="project-num">001</p>
-      <h3 class="project-title">Nombre del Proyecto</h3>
-      <p class="project-desc">Breve descripción del proyecto. Qué problema resuelve, qué tecnologías usa y cuál fue tu rol en el desarrollo.</p>
-      <span class="project-tag">React</span>
-      <span class="project-tag">Node.js</span>
-      <span class="project-tag">MongoDB</span>
-    </a>
-
-    <a href="#" class="project-card">
-      <p class="project-num">002</p>
-      <h3 class="project-title">Otro Proyecto</h3>
-      <p class="project-desc">Descripción del segundo proyecto. Mencioná el impacto, si tuviste usuarios reales o métricas interesantes.</p>
+      <h3 class="project-title">Timeseries Forecasting</h3>
+      <p class="project-desc">This project is a web application written in Python that allows users to select a Prometheus metric, visualize it with a graph, and perform forecasting.</p>
       <span class="project-tag">Python</span>
-      <span class="project-tag">FastAPI</span>
-      <span class="project-tag">Docker</span>
+      <span class="project-tag">Prometheus</span>
+      <span class="project-tag">Observability</span>
     </a>
 
-    <a href="#" class="project-card">
+    <a href="https://github.com/martiroman/observabilidad/tree/main/NodeJS" class="project-card">
+      <p class="project-num">002</p>
+      <h3 class="project-title">Observabilidad / CICD</h3>
+      <p class="project-desc">Notas, apuntes y ejemplos sobre Observabilidad, CI/CD en NodeJS</p>
+      <span class="project-tag">NodeJS</span>
+      <span class="project-tag">Observability</span>
+      <span class="project-tag">CI/CD</span>
+    </a>
+
+    <a href="https://github.com/martiroman/can-message-simulator" class="project-card">
       <p class="project-num">003</p>
-      <h3 class="project-title">Tercer Proyecto</h3>
-      <p class="project-desc">Un proyecto open source, una herramienta CLI, una API pública. Lo que quieras mostrar.</p>
+      <h3 class="project-title">CAN Message Simulator</h3>
+      <p class="project-desc">A Python-based CAN (Controller Area Network) message simulator with a graphical user interface (GUI) built using PyQt5.</p>
       <span class="project-tag">TypeScript</span>
       <span class="project-tag">PostgreSQL</span>
       <span class="project-tag">AWS</span>
+    </a>
+
+    <a href="https://github.com/martiroman/python-music" class="project-card">
+      <p class="project-num">004</p>
+      <h3 class="project-title">MIDI Arpeggiator</h3>
+      <p class="project-desc">A Python-based MIDI Arpeggiator that generates algorithmic sequences. Optimized for the KORG Nu:Tekt NTS-1,</p>
+      <span class="project-tag">Python</span>
+      <span class="project-tag">Music</span>
+      <span class="project-tag">KorgNTS-1</span>
     </a>
 
   </div>
@@ -405,7 +114,7 @@
       <div class="skill-list">
         <span class="skill-item">React / Next.js</span>
         <span class="skill-item">TypeScript</span>
-        <span class="skill-item">CSS / Tailwind</span>
+        <span class="skill-item">CSS</span>
         <span class="skill-item">HTML semántico</span>
       </div>
     </div>
@@ -415,7 +124,7 @@
       <div class="skill-list">
         <span class="skill-item">Node.js / Express</span>
         <span class="skill-item">Python / FastAPI</span>
-        <span class="skill-item">REST & GraphQL</span>
+        <span class="skill-item">REST</span>
         <span class="skill-item">Auth & Seguridad</span>
       </div>
     </div>
@@ -440,6 +149,15 @@
       </div>
     </div>
 
+    <div class="skill-block">
+      <p class="skill-category">// observabilidad</p>
+      <div class="skill-list">
+        <span class="skill-item">Prometheus</span>
+        <span class="skill-item">Grafana</span>
+        <span class="skill-item">Dynatrace</span>
+        <span class="skill-item">OpenTelemetry</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -449,56 +167,57 @@
   <h2 class="section-title">Últimos artículos</h2>
   <div class="posts">
 
-    <a href="#" class="post-row">
+    {% assign recent_posts = site.posts | limit: 3 %}
+    {% for post in recent_posts %}
+    <a href="{{ post.url | relative_url }}" class="post-row">
       <div>
-        <p class="post-title-row">Cómo estructuro mis proyectos en Node.js desde cero</p>
-        <p class="post-excerpt">Una guía práctica sobre arquitectura, convenciones y herramientas que realmente uso en producción.</p>
+        <p class="post-title-row">{{ post.title }}</p>
+        {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
       </div>
       <div class="post-meta">
-        <span>Ene 2025</span>
-        <span>8 min lectura</span>
+        <span>{{ post.date | date: "%b %Y" }}</span>
+        {% if post.read_time %}
+        <span>{{ post.read_time }} min lectura</span>
+        {% endif %}
       </div>
     </a>
+    {% endfor %}
 
-    <a href="#" class="post-row">
+    {% if site.posts.size == 0 %}
+    <div class="post-row" style="pointer-events:none; opacity:0.4;">
       <div>
-        <p class="post-title-row">PostgreSQL vs MongoDB: cuándo elegir cada uno</p>
-        <p class="post-excerpt">No hay una respuesta única. Acá explico los criterios que uso en mis proyectos para tomar esa decisión.</p>
+        <p class="post-title-row">Próximamente...</p>
+        <p class="post-excerpt">Todavía no hay posts publicados. Creá tu primer archivo en _posts/.</p>
       </div>
-      <div class="post-meta">
-        <span>Nov 2024</span>
-        <span>6 min lectura</span>
-      </div>
-    </a>
-
-    <a href="#" class="post-row">
-      <div>
-        <p class="post-title-row">Automatizando tareas repetitivas con Python y GitHub Actions</p>
-        <p class="post-excerpt">Scripts simples que me ahorraron horas de trabajo manual y cómo los integré al workflow de CI/CD.</p>
-      </div>
-      <div class="post-meta">
-        <span>Sep 2024</span>
-        <span>5 min lectura</span>
-      </div>
-    </a>
+    </div>
+    {% endif %}
 
   </div>
+
+  {% if site.posts.size > 3 %}
+  <div style="margin-top:1.5rem;">
+    <a href="/blog" class="btn btn-ghost">ver todos los posts</a>
+  </div>
+  {% endif %}
+
 </section>
 
 <!-- FOOTER / CONTACT -->
 <footer id="contact">
   <div>
     <p class="footer-cta-label">// ¿Tenés un proyecto en mente?</p>
-    <h2 class="footer-cta-heading">Hablemos<br><a href="mailto:vos@email.com">vos@email.com</a></h2>
+    <h2 class="footer-cta-heading">Hablemos<br><a href="mailto:martinnahuel.roman@proton.me">martinnahuel.roman@proton.me</a></h2>
   </div>
   <div class="footer-links">
-    <a href="https://github.com/tuusuario" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener">Twitter / X</a>
+    <a href="https://github.com/martiroman" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/martinnahuel-roman/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- <a href="https://twitter.com/martiroman" target="_blank" rel="noopener">Twitter / X</a>-->
     <a href="/cv.pdf" target="_blank">Descargar CV</a>
   </div>
   <div class="footer-bottom" style="grid-column: 1 / -1;">
-    <p class="footer-copy">© 2025 Tu Nombre — Hecho con Jekyll & ☕</p>
+    <p class="footer-copy">© 2026 Martin Roman — Hecho con Jekyll y Claude</p>
     <p class="footer-copy">Buenos Aires, Argentina</p>
   </div>
 </footer>
