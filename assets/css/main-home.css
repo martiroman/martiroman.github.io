@@ -330,8 +330,8 @@
     .terminal {
     margin-top: 2rem;
     background: var(--ink);
-    padding: 1.25rem 1.5rem;
-    max-width: 44ch;
+    padding: 1rem 1.5rem;       /* antes 1.25rem — reduce la altura */
+    max-width: 52ch;             /* antes 44ch — lo ensancha */
     opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
     }
     .terminal-bar {
