@@ -1,8 +1,6 @@
 ---
 title: "Timeseries Forecasting"
 excerpt: "Breve ejemplo de cómo aplicar Machine Learning a métricas en formato Timeseries para estimar su comportamiento futuro."
-categories: [SRE, Machine Learning]
-tags: [python, prometheus, arima, observability]
 date: 2025-02-23
 ---
 
