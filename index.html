@@ -1,4 +1,23 @@
 ---
-layout: home
-author_profile: true
+layout: default
+title: Inicio
 ---
+
+# Bienvenidos a mi blog personal
+
+Aquí comparto mi experiencia en **Observabilidad**, **Dynatrace** y **Desarrollo de Software** 
+
+## Entradas recientes
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <span class="date">{{ post.date | date: "%b %d, %Y" }}</span> » 
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<hr>
+
+### ¿Buscas mi perfil profesional?
+[👉 Ver mi CV Completo](./cv.html)
