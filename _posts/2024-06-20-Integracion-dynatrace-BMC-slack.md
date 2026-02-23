@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automatización de Incidentes: Integrando Dynatrace con BMC Remedy y Slack"
-date: 2026-02-23
+date: 2024-06-20
 categories: [Observability, Automation]
 tags: [dynatrace, edgeconnect, srer, devops]
 excerpt: "Caso de éxito: Cómo automatizar la respuesta ante eventos críticos utilizando filtrado avanzado de tags y arquitectura de alta disponibilidad con EdgeConnect."

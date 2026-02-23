@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Integración Dynatrace Telegram"
-date: 2026-02-23
+date: 2024-04-10
 categories: [Observability, Automation]
 tags: [dynatrace, telegram, alerts, devops]
 excerpt: "Lleva el poder del análisis de causa raíz a tu celular. Te contamos cómo integramos Dynatrace con Telegram para una respuesta inmediata ante incidentes."
