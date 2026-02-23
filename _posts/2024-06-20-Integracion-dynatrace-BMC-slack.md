@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Automatización de Incidentes: Integrando Dynatrace con BMC Remedy y Slack"
 date: 2024-06-20
 categories: [Observability, Automation]

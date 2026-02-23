@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Integración Dynatrace Telegram"
 date: 2024-04-10
 categories: [Observability, Automation]
